@@ -1,0 +1,244 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/appearances/protos/Parquetry.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/factory/containers/protos/CardboardBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/chairs/protos/WoodenChair.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/kitchen/breakfast/protos/JamJar.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/gctronic/e-puck/protos/E-puckGroundSensors.proto"
+
+WorldInfo {
+}
+DEF VIEWPOINT Viewpoint {
+  orientation -0.5773495576476542 0.5773491497521217 0.5773521001646745 2.094397931551669
+  position 3.98826402579041e-06 -2.1402650225763085e-06 7.2963549282626285
+  followType "None"
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  rotation 0 1 0 0
+  floorSize 3.6 3.6
+  floorTileSize 1 1
+  floorAppearance Parquetry {
+  }
+}
+DEF supervisor Robot {
+  children [
+    DEF emitter Emitter {
+      rotation -0.5773502691896258 -0.5773502691896258 -0.5773502691896258 2.0943951023931953
+    }
+    DEF receiver Receiver {
+      rotation -0.5773502691896258 -0.5773502691896258 -0.5773502691896258 2.0943951023931953
+    }
+  ]
+  name "supervisor"
+  controller "supervisor"
+  supervisor TRUE
+}
+DEF robot E-puck {
+  translation -1.30257 -1.5272 0.00824533
+  rotation -0.03970409686151038 0.267775048997804 -0.9626630292197967 0.023568280899544967
+  name "robot"
+  controller "robot"
+  emitter_channel 0
+  receiver_channel 0
+  groundSensorsSlot [
+    E-puckGroundSensors {
+    }
+  ]
+}
+DEF TARGET Solid {
+  translation 1.5 1.5 0.001
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+        texture ImageTexture {
+          url [
+            "https://avatars.githubusercontent.com/u/57842071?s=256"
+          ]
+        }
+      }
+      geometry Plane {
+        size 0.24 0.24
+      }
+    }
+  ]
+  name "target"
+}
+DEF OBSTACLES Group {
+  children [
+    DEF OBSTACLE_CBL1 CardboardBox {
+      translation 1 1.5 0.051
+      rotation 0 0 1 -0.6603752802136658
+      name "cardboard box long 1"
+      size 0.1 0.4 0.1
+    }
+    DEF OBSTACLE_CBL4 CardboardBox {
+      translation 1.5 -1 0.051
+      rotation 0 0 1 0.10429784100270467
+      name "cardboard box long 4"
+      size 0.1 0.4 0.1
+    }
+    DEF OBSTACLE_CB4 CardboardBox {
+      translation -0.5 0 0.051
+      rotation 0 0 1 -0.9843082827213774
+      name "cardboard box 4"
+      size 0.1 0.1 0.1
+    }
+    DEF OBSTACLE_CB5 CardboardBox {
+      translation -1 -0.5 0.051
+      rotation 0 0 1 -0.4294208619757627
+      name "cardboard box 5"
+      size 0.1 0.1 0.1
+    }
+    DEF OBSTACLE_CBLA1 CardboardBox {
+      translation 0.344081 0.0429522 0.051
+      rotation 0 0 1 1.89858
+      name "cardboard box large 1"
+      size 0.4 0.4 0.1
+    }
+    DEF OBSTACLE_CBLA5 CardboardBox {
+      translation -1.5 1 0.051
+      rotation 0 0 1 -3.029346558804786
+      name "cardboard box large 5"
+      size 0.4 0.4 0.1
+    }
+    DEF OBSTACLE_C1 WoodenChair {
+      translation -1 0 0
+      rotation 0 0 1 1.2855750746859567
+      name "wooden chair 1"
+    }
+    DEF OBSTACLE_C4 WoodenChair {
+      translation 1 0 0
+      rotation 0 0 1 0.28087197739811076
+      name "wooden chair 4"
+    }
+    DEF OBSTACLE_JJ1 JamJar {
+      translation 1.4998592535446083 0.9998151385534094 -0.0006972498178566613
+      rotation -3.35475357439187e-07 -3.63981060568066e-08 -0.999999999999943 1.5178147085136167
+      name "jam jar 1"
+    }
+    DEF OBSTACLE_JJ3 JamJar {
+      translation -0.49990318136842893 -0.9999821999477239 -0.0006972499060824075
+      rotation 4.575859774298342e-07 -3.026749617850555e-06 0.9999999999953147 0.0635574950465553
+      name "jam jar 3"
+    }
+  ]
+}
+DEF PATH Group {
+  children [
+    DEF p0 Solid {
+      translation -0.5 -0.5 0.001
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              transparency 0.75
+            }
+            texture ImageTexture {
+              url [
+                "https://avatars.githubusercontent.com/u/57842071?s=256"
+              ]
+            }
+          }
+          geometry Plane {
+            size 0.12 0.12
+          }
+        }
+      ]
+      name "p"
+    }
+    DEF p0 Solid {
+      translation -0.83 -1.06 0.001
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              transparency 0.75
+            }
+            texture ImageTexture {
+              url [
+                "https://avatars.githubusercontent.com/u/57842071?s=256"
+              ]
+            }
+          }
+          geometry Plane {
+            size 0.12 0.12
+          }
+        }
+      ]
+      name "p(16)"
+    }
+    DEF p1 Solid {
+      translation 0 0 0.001
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              transparency 0.75
+            }
+            texture ImageTexture {
+              url [
+                "https://avatars.githubusercontent.com/u/57842071?s=256"
+              ]
+            }
+          }
+          geometry Plane {
+            size 0.12 0.12
+          }
+        }
+      ]
+      name "p(1)"
+    }
+    DEF p2 Solid {
+      translation 0.5 0.5 0.001
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              transparency 0.75
+            }
+            texture ImageTexture {
+              url [
+                "https://avatars.githubusercontent.com/u/57842071?s=256"
+              ]
+            }
+          }
+          geometry Plane {
+            size 0.12 0.12
+          }
+        }
+      ]
+      name "p(2)"
+    }
+    DEF p3 Solid {
+      translation 1 1 0.001
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              transparency 0.75
+            }
+            texture ImageTexture {
+              url [
+                "https://avatars.githubusercontent.com/u/57842071?s=256"
+              ]
+            }
+          }
+          geometry Plane {
+            size 0.12 0.12
+          }
+        }
+      ]
+      name "p(3)"
+    }
+  ]
+}

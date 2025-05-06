@@ -1,0 +1,208 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/gctronic/e-puck/protos/E-puckGroundSensors.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.5773502691896258 0.5773502691896258 0.5773502691896258 2.0943999999999994
+  position -0.007058116787498489 -0.37757004716411374 1.9900054528776092
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  translation 0 -0.35 0
+  floorSize 1 1.2
+  floorAppearance Parquetry {
+  }
+}
+DEF supervisor Robot {
+  children [
+    DEF emitter Emitter {
+      rotation -0.5773502691896258 -0.5773502691896258 -0.5773502691896258 2.0943951023931953
+    }
+    DEF receiver Receiver {
+      rotation -0.5773502691896258 -0.5773502691896258 -0.5773502691896258 2.0943951023931953
+    }
+  ]
+  name "supervisor"
+  controller "supervisor"
+  supervisor TRUE
+}
+DEF robot E-puck {
+  translation -0.237233 0.0190329 0.000175157
+  rotation -0.03970409686151038 0.267775048997804 -0.9626630292197967 0.023568280899544967
+  name "robot"
+  controller "robot"
+  emitter_channel 0
+  receiver_channel 0
+  groundSensorsSlot [
+    E-puckGroundSensors {
+    }
+  ]
+}
+DEF TARGET Solid {
+  translation -0.06 -0.52 0.01
+  rotation 0 0 1 -1.5707953071795862
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+        texture ImageTexture {
+          url [
+            "https://avatars.githubusercontent.com/u/57842071?s=256"
+          ]
+        }
+      }
+      geometry Plane {
+        size 0.12 0.12
+      }
+    }
+  ]
+  name "target"
+}
+DEF MAZE_WALLS Group {
+  children [
+    DEF OBSTACLE1 Solid {
+      translation -0.077599 -0.0671577 0.035
+      children [
+        Shape {
+          appearance PBRAppearance {
+            roughness 0.5
+            metalness 0
+          }
+          geometry DEF BOX1 Box {
+            size 0.49 0.02 0.07
+          }
+        }
+      ]
+      name "red box"
+      boundingObject USE BOX1
+    }
+    DEF OBSTACLE1 Solid {
+      translation 0.002401 -0.597158 0.035
+      rotation 0 1 0 3.14159
+      children [
+        Shape {
+          appearance PBRAppearance {
+            roughness 0.5
+            metalness 0
+          }
+          geometry DEF BOX1 Box {
+            size 0.34 0.02 0.07
+          }
+        }
+      ]
+      name "red box(6)"
+      boundingObject USE BOX1
+    }
+    DEF OBSTACLE1 Solid {
+      translation -0.157599 -0.457158 0.035
+      rotation 0.7071067811862364 -0.7071067811862364 9.381857096790023e-07 3.14159
+      children [
+        Shape {
+          appearance PBRAppearance {
+            roughness 0.5
+            metalness 0
+          }
+          geometry DEF BOX1 Box {
+            size 0.29 0.02 0.07
+          }
+        }
+      ]
+      name "red box(7)"
+      boundingObject USE BOX1
+    }
+    DEF OBSTACLE1 Solid {
+      translation 0.002401 0.122842 0.035
+      children [
+        Shape {
+          appearance PBRAppearance {
+            roughness 0.5
+            metalness 0
+          }
+          geometry DEF BOX1 Box {
+            size 0.65 0.02 0.07
+          }
+        }
+      ]
+      name "red box(1)"
+      boundingObject USE BOX1
+    }
+    DEF OBSTACLE1 Solid {
+      translation 0.002401 -0.807158 0.035
+      children [
+        Shape {
+          appearance PBRAppearance {
+            roughness 0.5
+            metalness 0
+          }
+          geometry DEF BOX1 Box {
+            size 0.65 0.02 0.07
+          }
+        }
+      ]
+      name "red box(2)"
+      boundingObject USE BOX1
+    }
+    DEF OBSTACLE1 Solid {
+      translation 0.322401 -0.347158 0.035
+      rotation 0 0 1 1.5708
+      children [
+        Shape {
+          appearance PBRAppearance {
+            roughness 0.5
+            metalness 0
+          }
+          geometry DEF BOX1 Box {
+            size 0.93 0.02 0.07
+          }
+        }
+      ]
+      name "red box(3)"
+      boundingObject USE BOX1
+    }
+    DEF OBSTACLE1 Solid {
+      translation -0.317599 -0.437158 0.035
+      rotation 0 0 1 1.5708
+      children [
+        Shape {
+          appearance PBRAppearance {
+            roughness 0.5
+            metalness 0
+          }
+          geometry DEF BOX1 Box {
+            size 0.74 0.02 0.07
+          }
+        }
+      ]
+      name "red box(4)"
+      boundingObject USE BOX1
+    }
+    DEF OBSTACLE1 Solid {
+      translation 0.162401 -0.337158 0.035
+      rotation 0 0 1 1.5708
+      children [
+        Shape {
+          appearance PBRAppearance {
+            roughness 0.5
+            metalness 0
+          }
+          geometry DEF BOX1 Box {
+            size 0.53 0.02 0.07
+          }
+        }
+      ]
+      name "red box(5)"
+      boundingObject USE BOX1
+    }
+  ]
+}
